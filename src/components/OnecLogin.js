@@ -9,6 +9,7 @@ class OnecLogin extends React.Component {
         isLoggedIn: false,
         userAddress: "",
       };
+     
     }
     render() {
       return (
@@ -23,7 +24,7 @@ class OnecLogin extends React.Component {
             }
           }>Login with Metamask</Button>:null}
         <div>
-            {this.state.isLoggedIn ? <div><h3>Login Successful</h3> <p>User Address: {this.state.userAddress}</p> <a onClick={this.handleClick} style={{cursor: 'pointer'}}>click me!</a></div> : null}
+            {this.state.isLoggedIn ? <div><h3>Login Successful</h3> <p>User Address: {this.state.userAddress}</p> </div> : null}
         </div>
         </div>
 
