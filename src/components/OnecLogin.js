@@ -9,10 +9,11 @@ class OnecLogin extends React.Component {
         isLoggedIn: false,
         userAddress: "",
       };
-     
+
     }
     render() {
       return (
+        
         <div>
             {this.state.isLoggedIn==false ? 
           <Button variant="primary" onClick={
@@ -23,6 +24,15 @@ class OnecLogin extends React.Component {
                 }).catch((error) => {console.log(error)});
             }
           }>Login with Metamask</Button>:null}
+          
+          <Button variant="primary" onClick={
+            () => {
+              Onec.auth.withMetamask().then((response) => {
+                this.setState({isLoggedIn: true, userAddress: response.user.address});
+                console.log(response)
+            }).catch((error) => {console.log(error)});
+        }
+          }>Login walletconnect</Button>
         <div>
             {this.state.isLoggedIn ? <div><h3>Login Successful</h3> <p>User Address: {this.state.userAddress}</p> </div> : null}
         </div>
